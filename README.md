@@ -3,7 +3,7 @@
 ## ROS2 version of VINS-Fusion.
 
 ### Notices
-- code has been update so that the vins package can be executed via ros2 run or ros2 launch
+- code has been updated so that the vins package can be executed via ros2 run or ros2 launch
 - but now it has dependency on Opencv 4.0.x
 
 ### Prerequisites
@@ -12,7 +12,7 @@
   - ROS2 foxy
 - **Libraries**
   - OpenCV 4.0.x
-  - [Ceres Solver-2.1.0](http://ceres-solver.org/installation.html)
+  - [Ceres Solver-2.1.0](http://ceres-solver.org/installation.html) (you can refer [here](https://github.com/zinuok/VINS-Fusion#-ceres-solver-1); just edit 1.14.0 to 2.1.0 for install.)
   - [Eigen-3.3.9](https://github.com/zinuok/VINS-Fusion#-eigen-1)
 
 
@@ -33,7 +33,7 @@ colcon build --symlink-install && source ./install/setup.bash && source ./instal
 ### run
 ```
 # vins
-ros2 launch vins $(PATH_TO_YOUR_VINS_CONFIG_FILE)
+ros2 run vins $(PATH_TO_YOUR_VINS_CONFIG_FILE)
 
 # Rviz2 visualization
 ros2 launch vins vins_rviz.launch.xml
