@@ -181,7 +181,7 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
               << estimator.Vs[WINDOW_SIZE].z() << "," << endl;
         foutC.close();
         Eigen::Vector3d tmp_T = estimator.Ps[WINDOW_SIZE];
-        printf("time: %f, t: %f %f %f q: %f %f %f %f \n", header.stamp.sec + header.stamp.nanosec * (1e-9),
+        printf("time: %d, t: %f %f %f q: %f %f %f %f \n", header.stamp.sec /*+ header.stamp.nanosec / (1e-9)*/,
                                                           tmp_T.x(), tmp_T.y(), tmp_T.z(),
                                                           tmp_Q.w(), tmp_Q.x(), tmp_Q.y(), tmp_Q.z());
     }
@@ -198,7 +198,7 @@ void pubKeyPoses(const Estimator &estimator, const std_msgs::msg::Header &header
     key_poses.type = visualization_msgs::msg::Marker::SPHERE_LIST;
     key_poses.action = visualization_msgs::msg::Marker::ADD;
     key_poses.pose.orientation.w = 1.0;
-    key_poses.lifetime = rclcpp::Duration(0);
+    key_poses.lifetime = rclcpp::Duration::from_seconds(0);
 
     //static int key_poses_id = 0;
     key_poses.id = 0; //key_poses_id++;
