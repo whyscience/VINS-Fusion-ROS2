@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 project(vins)
 
 set(CMAKE_CXX_STANDARD 14)
-add_compile_options(-Wextra -Wpedantic)
-
+#add_compile_options(-Wextra -Wpedantic)
+add_compile_options(-Wno-vla -Wno-unused-result)
 set(CMAKE_BUILD_TYPE Release)
 
 # find dependencies

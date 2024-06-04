@@ -3,8 +3,8 @@ project(camera_models)
 
 
 set(CMAKE_CXX_STANDARD 14)
-add_compile_options(-Wextra -Wpedantic)
-
+#add_compile_options(-Wextra -Wpedantic)
+#add_compile_options(-Wno-maybe-uninitialized)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)

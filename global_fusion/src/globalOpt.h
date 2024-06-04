@@ -42,10 +42,6 @@ public:
 	void getGlobalOdom(Eigen::Vector3d &odomP, Eigen::Quaterniond &odomQ);
 	nav_msgs::msg::Path global_path;
 
-	
-
-
-
 private:
 	void GPS2XYZ(double latitude, double longitude, double altitude, double* xyz);
 	void optimize();

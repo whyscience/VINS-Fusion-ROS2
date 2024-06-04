@@ -96,7 +96,7 @@ void vio_callback(const nav_msgs::msg::Odometry::SharedPtr pose_msg)
     m_buf.lock();
     while(!gpsQueue.empty())
     {
-        sensor_msgs::msg::NavSatFix::ConstPtr GPS_msg = gpsQueue.front();
+        auto GPS_msg = gpsQueue.front();
         double gps_t = GPS_msg->header.stamp.sec;
         printf("vio t: %f, gps t: %f \n", t, gps_t);
         // 10ms sync tolerance
@@ -174,16 +174,11 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
     auto n = rclcpp::Node::make_shared("globalEstimator");
-    auto qos_profile = rclcpp::QoS(rclcpp::KeepLast(100));
-
+    //auto qos_profile = rclcpp::QoS(rclcpp::KeepLast(100));
 
     auto sub_GPS = n->create_subscription<sensor_msgs::msg::NavSatFix>("/gps", rclcpp::QoS(rclcpp::KeepLast(100)), GPS_callback);
 
     auto sub_vio = n->create_subscription<nav_msgs::msg::Odometry>("/vins_estimator/odometry", rclcpp::QoS(rclcpp::KeepLast(100)), vio_callback);
-
-
-
-
 
     pub_global_path = n->create_publisher<nav_msgs::msg::Path>("global_path", 100);
     pub_global_odometry = n->create_publisher<nav_msgs::msg::Odometry>("global_odometry", 100);

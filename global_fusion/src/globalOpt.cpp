@@ -12,9 +12,6 @@
 #include "globalOpt.h"
 #include "Factors.h"
 
-
-
-
 GlobalOptimization::GlobalOptimization()
 {
 	initGPS = false;
