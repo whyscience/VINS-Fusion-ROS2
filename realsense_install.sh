@@ -2,7 +2,7 @@
 #######################
 ## ROS2 dependencies ##
 #######################
-sudo apt-get install -y ros-foxy-cv-bridge ros-foxy-librealsense2 ros-foxy-message-filters ros-foxy-image-transport
+sudo apt-get install -y ros-humble-cv-bridge ros-humble-librealsense2 ros-humble-message-filters ros-humble-image-transport
 sudo apt-get install -y libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 

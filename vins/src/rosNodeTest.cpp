@@ -23,10 +23,10 @@
 
 Estimator estimator;
 
-queue<sensor_msgs::msg::Imu::ConstPtr> imu_buf;
-queue<sensor_msgs::msg::PointCloud::ConstPtr> feature_buf;
-queue<sensor_msgs::msg::Image::ConstPtr> img0_buf;
-queue<sensor_msgs::msg::Image::ConstPtr> img1_buf;
+queue<sensor_msgs::msg::Imu::SharedPtr> imu_buf;
+queue<sensor_msgs::msg::PointCloud::SharedPtr> feature_buf;
+queue<sensor_msgs::msg::Image::SharedPtr> img0_buf;
+queue<sensor_msgs::msg::Image::SharedPtr> img1_buf;
 std::mutex m_buf;
 
 // header: 1403715278
@@ -48,9 +48,9 @@ void img1_callback(const sensor_msgs::msg::Image::SharedPtr img_msg)
 
 
 // cv::Mat getImageFromMsg(const sensor_msgs::msg::Image::SharedPtr img_msg)
-cv::Mat getImageFromMsg(const sensor_msgs::msg::Image::ConstPtr &img_msg)
+cv::Mat getImageFromMsg(const sensor_msgs::msg::Image::SharedPtr &img_msg)
 {
-    cv_bridge::CvImageConstPtr ptr;
+    cv_bridge::CvImage::ConstPtr ptr;
     if (img_msg->encoding == "8UC1")
     {
         sensor_msgs::msg::Image img;

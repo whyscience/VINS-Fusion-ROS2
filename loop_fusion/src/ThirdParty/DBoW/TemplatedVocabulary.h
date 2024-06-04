@@ -1527,7 +1527,7 @@ void TemplatedVocabulary<TDescriptor,F>::loadBin(const std::string &filename) {
   m_nodes.resize(voc.nNodes + 1); // +1 to include root
   m_nodes[0].id = 0;
 
-  for(unsigned int i = 0; i < voc.nNodes; ++i)
+  for(int i = 0; i < voc.nNodes; ++i)
   {
     NodeId nid = voc.nodes[i].nodeId;
     NodeId pid = voc.nodes[i].parentId;
