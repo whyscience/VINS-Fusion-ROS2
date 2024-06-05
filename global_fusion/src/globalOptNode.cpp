@@ -144,7 +144,7 @@ void vio_callback(const nav_msgs::msg::Odometry::SharedPtr pose_msg)
 
 
     // write result to file
-    std::ofstream foutC("/home/tony-ws1/output/vio_global.csv", ios::app);
+    std::ofstream foutC("./output/vio_global.csv", ios::app);
     foutC.setf(ios::fixed, ios::floatfield);
     foutC.precision(0);
     foutC << pose_msg->header.stamp.sec * 1e9 << ",";

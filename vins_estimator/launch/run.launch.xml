@@ -5,6 +5,6 @@
     <node name="rviz2" pkg="rviz2" exec="rviz2" args="-d $(var rviz_config)"/>
     
     <let name="vins_config" value="$(find-pkg-share vins)/config/test/stereo_config.yaml"  />
-    <node name="vio" pkg="vins" exec="vins_node" args=" $(var vins_config)"/> 
+    <node name="vins_node" pkg="vins" exec="vins_node" args=" $(var vins_config)"/>
     
 </launch>
